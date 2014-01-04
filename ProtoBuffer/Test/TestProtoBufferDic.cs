@@ -133,6 +133,8 @@ namespace ProtoBuffer.Test
         public void TestEnum()
         {
 
+		
+		
             ProtoBufferDic dic = new ProtoBufferDic("dic");
 
             List<string> list = new List<string>();
