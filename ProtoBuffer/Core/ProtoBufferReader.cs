@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 namespace ProtoBuffer
 {
-
+    /// <summary>
+    /// protobuf的读写类
+    /// </summary>
     public sealed class ProtoBufferReader
     {
         private readonly List<ProtoBufferObject> _list = new List<ProtoBufferObject>();

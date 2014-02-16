@@ -1,6 +1,10 @@
 ﻿using System;
 namespace ProtoBuffer
 {
+    /// <summary>
+    /// protobuf 最基本的结构 
+    /// 
+    /// </summary>
     public class ProtoBufferObject
     {
         public int FieldNumber { get; private set; }

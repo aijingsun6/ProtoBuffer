@@ -2,6 +2,9 @@
 using System.IO;
 namespace ProtoBuffer
 {
+    /// <summary>
+    /// protobuf写入类
+    /// </summary>
     public sealed class ProtoBufferWriter
     {
         private MemoryStream _memorystream;
