@@ -65,7 +65,7 @@ namespace ProtoBuffer
             Summarys = new List<string>();
             Message = msg;
             Lines = lines;
-            FieldNumber = 0;
+            FieldNumber = int.MinValue;
         }
         
         internal void Parse()
@@ -88,11 +88,6 @@ namespace ProtoBuffer
             }
             ParseInfos(list);
 
-            if (FieldNumber == 0)
-            {
-                throw new ProtoBufferException(string.Format("在文件名{0}，message:{1},FieldNumber解析错误。",Message.File.FileName,Message.Name));                    
-                
-            }
             foreach (ProtoBufferField field in Message.Fields)
             {
                 if (Equals(field))
