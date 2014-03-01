@@ -120,15 +120,18 @@ namespace ProtoBuffer
 
             if (Message.DataType == DataType.Class)
             {
-                string[] strings = line.Content.Split(new string[] {" ",";"}, StringSplitOptions.RemoveEmptyEntries);
-                if (strings.Length < 5)
+                if (!line.Content.Contains("="))
+                {
+                    throw new ProtoBufferException(string.Format("解析field出现异常,缺少=:{0}", line.ToString()));
+                }
+
+                string[] strings = line.Content.Split(new string[] {" ",";","="}, StringSplitOptions.RemoveEmptyEntries);
+                
+                if (strings.Length < 4)
                 {
                     throw new ProtoBufferException(string.Format("解析field出现异常：{0}", line.ToString()));
                 }
-                if (!strings[3].Equals("="))
-                {
-                    throw new ProtoBufferException(string.Format("解析field出现异常,不包含=:{0}", line.ToString()));
-                }
+                
 
                 string s = strings[0];
                 if (s.Equals("required"))
@@ -206,7 +209,7 @@ namespace ProtoBuffer
                     throw new ProtoBufferException(string.Format("含有c#关键字:{0}",line.ToString()));
                 }
                 int fieldNumer;
-                if (!int.TryParse(strings[4], out fieldNumer))
+                if (!int.TryParse(strings[3], out fieldNumer))
                 {
                     throw new ProtoBufferException(string.Format("解析field出现异常,fieldNumber异常：{0}", line.ToString()));
                 }
@@ -215,17 +218,18 @@ namespace ProtoBuffer
             }
             else if(Message.DataType == DataType.Enum)
             {
-                string[] strings = line.Content.Split(new string[] {" ",";"}, StringSplitOptions.RemoveEmptyEntries);
-                if (strings.Length < 3)
+                if (!line.Content.Contains("="))
+                {
+                    throw new ProtoBufferException(string.Format("解析field出现异常,缺少=:{0}", line.ToString()));
+                }
+                string[] strings = line.Content.Split(new string[] {" ",";","="}, StringSplitOptions.RemoveEmptyEntries);
+                if (strings.Length < 2)
                 {
                     throw new ProtoBufferException(string.Format("解析field出现异常：{0}",line.ToString()));
                 }
-                if (!strings[1].Equals("="))
-                {
-                    throw new ProtoBufferException(string.Format("解析field出现异常:{0}", line.ToString()));
-                }
+                
                 int fieldNumer;
-                if (! int.TryParse(strings[2],out fieldNumer))
+                if (! int.TryParse(strings[1],out fieldNumer))
                 {
                     throw new ProtoBufferException(string.Format("解析field出现异常,fieldNumber异常：{0}", line.ToString()));
                 }

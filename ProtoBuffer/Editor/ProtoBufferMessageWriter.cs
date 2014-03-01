@@ -182,7 +182,7 @@ namespace ProtoBuffer
                 foreach (ProtoBufferField field in message.Fields)
                 {
                     WriteSummaryCShape(writer,field.Summarys,Tap2);
-                    writer.WriteLine(string.Format("{0}{1} = {2}",Tap2,field.Name,field.FieldNumber));
+                    writer.WriteLine(string.Format("{0}{1} = {2},",Tap2,field.Name,field.FieldNumber));
                 }
                 writer.WriteLine(Tap1Right);
             }

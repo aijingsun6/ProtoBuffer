@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\..\NUnit\NUnit-2.6.2\bin\framework\nunit.framework.dll</HintPath>
+      <HintPath>..\..\..\..\develop\NUit\NUit-2.6.3\NUnit-2.6.3\bin\framework\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -65,6 +65,7 @@
     <Compile Include="Test\Foo.cs" />
     <Compile Include="Test\FooEnum.cs" />
     <Compile Include="Test\Packet.cs" />
+    <Compile Include="Test\TestEnum.cs" />
     <Compile Include="Test\TestError.cs" />
     <Compile Include="Test\TestNormal.cs" />
     <Compile Include="Test\TestProtoBufferDic.cs" />

@@ -386,12 +386,11 @@ namespace ProtoBuffer.Test
        [Test]
         public void TestLocalFiles()
        {
-           string path = "E:\\work\\newvs\\Proto";
+           string path = "E:\\tmp";
 
             
            ProtoBufferDic dic = new ProtoBufferDic(path);
 
-           dic.OutNameSpace = "assets.sanxiao.communication.proto";
 
            dic.Parse();
 
